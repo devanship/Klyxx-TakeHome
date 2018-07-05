@@ -1,0 +1,32 @@
+/* Your CSS goes here*/
+body {
+	margin: 0;
+	font-family: 'Helvetica';
+}
+
+.row {
+	margin-right: 0 !important;
+	margin-left: 0 !important;
+}
+
+
+.top-row {
+	margin-top: 37px;
+}
+
+
+@media (min-width:768px) {
+	.container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-flow: column;
+	}
+
+	.top-row {
+		display: flex;
+		flex-flow: row;
+		justify-content: center;
+		align-items: center;
+	}
+}

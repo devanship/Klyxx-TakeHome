@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Admin Panel</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Import stylesheets -->
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="stylesheet" type="text/css" href="./css/nav.css">
+	<link rel="stylesheet" type="text/css" href="./css/progress-bar.css">
+	<link rel="stylesheet" type="text/css" href="./css/data-box.css">
+	<link rel="stylesheet" type="text/css" href="./css/user-panel.css">
+	<link rel="stylesheet" type="text/css" href="./css/traffic-panel.css">
+	<link rel="stylesheet" type="text/css" href="./css/email-panel.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+	<!-- Import scripts-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+</head>
+
+<body>
+	<!-- Nav div -->
+	<div class="nav">
+
+		<!-- Nav links to the left of logo. -->
+		<div id="nav-links-left" class="nav-links-left">
+  			<a href="#">link</a>
+  			<a href="#">link</a>
+  		</div>
+
+		<div class="nav-header">
+			<div class="logo">logo</div>
+			<!-- Burger button for smaller screen resolution. openNave JS function allows toggel when button is clicked -->
+			<span class="nav-btn" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+		</div>
+
+  		<!-- Nav links to the right of logo. -->
+  		<div id="nav-links-right" class="nav-links-right">
+  			<a href="#">link</a>
+  			<a href="#">link</a>
+  		</div>
+
+  		<!-- Nav links. openNav JS function allows toggling when link is clicked -->
+  		<div id="nav-links" class="nav-links">
+  			<a href="#" onclick="openNav()">link</a>
+  			<a href="#" onclick="openNav()">link</a>
+  			<a href="#" onclick="openNav()">link</a>
+  			<a href="#" onclick="openNav()">link</a>
+  		</div>
+	</div>
+
+	<!-- Main content -->
+	<div class="container">
+		<!-- Users panel and web traffic panel to be displayed inline when larger screen resolution -->
+		<div class="row top-row" >
+			<!-- Users panel div -->
+			<div class="col-md-6 user-panel">
+
+					<!-- Progress bar -->
+					<div class="row progress-bar-wrapper">
+						<!-- Total users number div -->
+						<div class="col-6 left">
+							<!-- Blue progress bar. Amount loaded from JSON using main function in JS-->
+							<div id="user-amt" class="amt"></div>
+							<label>Total Users</label>
+						</div>
+						<!-- Total users progress bar -->
+						<div class="col-6 bar-wrapper">
+							<!-- Blue progress bar. Value loaded from JSON using main function in JS-->
+							<div class="progress ">
+								<div class="user-bar progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+							<!-- T-shaped progress line -->
+							<div class="progress-line">
+								<svg height="5" width="100%">
+									<line x1="0" y1="0" x2="100%" y2="0" style="stroke:#4A4A4A;stroke-width:5" />
+								</svg>
+								<svg height="30" width="2">
+									<line x1="1" y1="0" x2="1" y2="25" style="stroke:#4A4A4A;stroke-width:2" />
+								</svg>
+							</div>
+							<!-- Total users goal number label. Amount loaded from JSON using main function in JS -->
+							<div id="user-total-amt" class="totalamt"></div>
+						</div>
+					</div>
+
+					<!-- Data table below progress bar -->
+					<table class="col-md-6 data-box">
+						<!-- Light row -->
+						<tr class="light">
+						    <td class="data-label">Churn Rate</td>
+						    <!-- Data loaded from JSON using main function in JS -->
+						    <td id="churn-rate" class="data"></td>
+						 </tr>
+						 <!-- Dark row -->
+						 <tr class="dark">
+						    <td class="data-label">Average Acquistion Cost</td>
+						    <!-- Data loaded from JSON using main function in JS -->
+						    <td id="aa-cost" class="data"></td>
+						 </tr>
+						 <!-- Light row -->
+						 <tr class="light">
+						    <td class="data-label">Bounce Rate</td>
+						    <!-- Data loaded from JSON using main function in JS -->
+						    <td id="bounce-rate" class="data"></td>
+						 </tr>
+						 <!-- Dark row -->
+						 <tr class="dark">
+						    <td class="data-label">Above the fold bounce</td>
+						    <!-- Data loaded from JSON using main function in JS -->
+						    <td id="atf-bounce" class="data"></td>
+						 </tr>
+					</table>
+				
+			</div>
+
+			<!-- Web traffic panel div -->
+			<div class="col-md-6 traffic-panel">
+
+					<!-- Progress bar -->
+					<div class="row progress-bar-wrapper">
+						<!-- Daily visits number div. -->
+						<div class="col-6 left">
+							<!-- Amount loaded from JSON using main function in JS -->
+							<div id="traffic-amt" class="amt"></div>
+							<label>Daily Visits</label>
+						</div>
+						<!-- Daily visits progress bar -->
+						<div class="col-6 bar-wrapper">
+							<!-- Blue progress bar. Value loaded from JSON using main function in JS -->
+							<div class="progress">
+								<div class="traffic-bar progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+							<!-- T-shaped progress line -->
+							<div class="progress-line">
+								<svg height="5" width="100%">
+									<line x1="0" y1="0" x2="100%" y2="0" style="stroke:#4A4A4A;stroke-width:5" />
+								</svg>
+								<svg height="30" width="2">
+									<line x1="1" y1="0" x2="1" y2="25" style="stroke:#4A4A4A;stroke-width:2" />
+								</svg>
+							</div>
+							<!-- Total daily visits goal number label. Amount loaded from JSON using main function in JS -->
+							<div id="traffic-total-amt" class="totalamt"></div>
+						</div>
+					</div>
+				
+					<!-- Data table below progress bar -->
+					<table class="col-md-6 data-box">
+						<!-- Light row -->
+						<tr class="light">
+						    <td class="data-label">Active Connections</td>
+						    <!-- Data loaded from JSON using main function in JS -->
+						    <td id="active-connections" class="data"></td>
+						 </tr>
+						 <!-- Dark row -->
+						 <tr class="dark">
+						    <td class="data-label">Unique Visits Today</td>
+						    <!-- Data loaded from JSON using main function in JS -->
+						    <td id="unique-visits" class="data"></td>
+						 </tr>
+						 <!-- Light row-->
+						 <tr class="light">
+						    <td class="data-label">Load Performance</td>
+						    <!-- Data loaded from JSON using main function in JS -->
+						    <td id="load-performance" class="data""></td>
+						 </tr>
+						  <!-- Dark row -->
+						 <tr class="dark">
+						    <td class="data-label">SEO Ranking</td>
+						    <!-- Data loaded from JSON using main function in JS -->
+						    <td id="seo-ranking" class="data"></td>
+						 </tr>
+					</table>
+			</div>
+		</div>
+
+		<!-- Email panel div -->
+		<div class="row bottom-row">
+			<div class="col-md-6 email-panel">
+
+				<!-- Progress bar -->
+				<div class="row progress-bar-wrapper">
+					<!-- Click throughs number div -->
+					<div class="col-6 left">
+						<!-- Amount loaded from JSON using main function in JS -->
+						<div id="email-amt" class="amt"></div>
+						<label>Click-throughs Today</label>
+					</div>
+					<!-- Click throughs progress bar -->
+					<div class="col-6 bar-wrapper">
+						<!-- Blue progress bar. Value loaded from JSON using main function in JS -->
+						<div class="progress">
+							<div class="email-bar progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+						<!-- T-shaped progress line -->
+						<div class="progress-line">
+							<svg height="5" width="140">
+								<line x1="0" y1="0" x2="140" y2="0" style="stroke:#4A4A4A;stroke-width:5" />
+							</svg>
+							<svg height="30" width="2">
+								<line x1="1" y1="0" x2="1" y2="25" style="stroke:#4A4A4A;stroke-width:2" />
+							</svg>
+						</div>
+						<!-- Click throughs goal number label. Amount loaded from JSON using main function in JS -->
+						<div id="email-total-amt" class="totalamt"></div>
+					</div>
+				</div>
+
+				<!-- Email form div-->
+				<div class="email-form-wrapper">
+					<!-- Email form title -->
+					<div class="header">Send Email Blast</div>
+					<!-- Email form. Insert your email to recieve submitions-->
+					<form class="email-form" action="//formspree.io/your@email.com" method="POST">
+						<div class="form-wrapper">
+							<div class="subject-line">
+								<input type="text" name="_subject" placeholder="Subject Line ..."/>
+							</div>
+							<div class="email-body">
+								<textarea name="emailbody" placeholder="Email Body ..."></textarea>
+							</div>
+							<input type="hidden" name="_replyto"/>
+						</div>
+						<div class="btn-wrapper">
+							<input type="submit" value="Send" class="send-btn">
+						</div>
+						<input type="text" name="_gotcha" style="display:none" />
+					</form>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

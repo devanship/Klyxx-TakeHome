@@ -1,0 +1,25 @@
+.data-box {
+	border-left: 2px solid #161616;
+	font-size: 12px;
+	color: #4A4A4A;
+	width: 200px !important;
+}
+
+.data-label {
+	padding-left: 6px;
+
+}
+
+.data {
+	float: right;
+	padding-right: 5px;
+}
+
+.light {
+	background: rgba(216,216,216,0.17);
+}
+
+.dark {
+	background: rgba(216,216,216,0.56);
+}
+
